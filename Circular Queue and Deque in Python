@@ -1,0 +1,109 @@
+#CIRCULAR QUEUE
+
+
+class cir_queue():
+    def __init__(self,k):
+        self.k=k
+        self.cir_queue= [""]*k
+        self.front=self.rear=-1
+        
+    def enqueue(self,data):
+        if (self.rear + 1)%self.k==self.front:
+            print("Queue is Full")
+        elif(self.front==-1):
+            self.front=0
+            self.rear=0
+            self.cir_queue[self.rear]=data
+        else:
+            self.rear=(self.rear+1)%self.k
+            self.cir_queue[self.rear]=data
+    
+    
+    
+    def dequeue(self):
+        if(self.rear==-1):
+            print("Its empty")
+        elif(self.front==self.rear):
+            data=self.cir_queue[self.front]
+            self.front=0
+            self.rear=0
+            return data
+        else:
+            data=self.cir_queue[self.front]
+            self.front=(self.front+1)%self.k
+            return data
+            
+            
+    def display(self):
+        if (self.front==-1):
+            print("The Queue is empty")
+            
+        elif(self.rear>=self.front):
+            for i in range(self.front, self.rear+1):
+                print(self.cir_queue[i],end=" ")
+            print()
+        
+        else:
+            for i in range(0,self.k):
+                print(self.cir_queue[i],end=" ")
+            print()
+            
+            
+            
+        
+        
+c=cir_queue(5)
+c.enqueue(10)
+c.enqueue(2)
+c.enqueue(1)
+c.enqueue(26)
+c.enqueue(18)
+c.display()
+c.dequeue()
+c.dequeue()
+c.display()
+
+
+
+
+
+
+*********************************************************************************************************************************************************
+
+#DEQUE
+
+
+
+class deQ():
+    def __init__(self):
+        self.deQ=[]
+    def push(self,item):
+        self.deQ.append(item)
+        return self.deQ
+        
+    def poprear(self):
+        if len(self.deQ)==0:
+            return "empty"
+
+        return self.deQ.pop()
+    
+    def popfront(self):
+        if len(self.deQ)==0:
+            return "empty"
+        return self.deQ.pop(0)
+    
+    def display(self):
+        return self.deQ
+    
+    
+deQ=deQ()
+deQ.popfront()
+deQ.push(25)
+deQ.push(2)
+deQ.push(5)
+deQ.push(55)
+deQ.display()
+print(deQ.display())
+deQ.poprear()
+print(deQ.display())
+deQ.popfront()
