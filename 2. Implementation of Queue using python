@@ -1,0 +1,29 @@
+class queue():
+    def __init__(self):
+        self.queue = []
+    def is_empty(self):
+        return self.queue==[]
+    def push(self, item):
+        self.queue.append(item)
+        return self.queue
+    
+    def pop(self):
+        if q.is_empty():
+            print("Queue is empty")
+        self.queue.pop(0)
+    
+    
+    def display(self):
+        return self.queue
+    
+q=queue()
+print("Is queue empty? ", q.is_empty())
+q.push(25)
+q.push(12)
+q.push(2)
+q.push(5)
+print(q.display())
+print(q.is_empty())
+q.pop()
+print(q.display())
+    
